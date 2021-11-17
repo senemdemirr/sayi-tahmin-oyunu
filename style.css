@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Mulish' , sans-serif;
+    box-sizing: border-box;
+}
+/* :root{
+    filter: invert(100%);
+} */
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #e0e0e0;
+}
+.container{
+    height: 550px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 60px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    border: 1px solid transparent;
+    position: relative;
+    z-index: 0;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe,-20px -20px 60px #ffffff;
+}
+.container h2{
+    font-size: 26px;
+    color: #212121;
+}
+.container h5{
+    font-size: 18px;
+    color: #212121;
+}
+.container input{
+    margin-top: -20px;
+    padding: 0 20px;
+    height: 40px;
+    width: 100%;
+    border: transparent;
+    border-radius: 5px;
+    -webkit-appearance: none;
+}
+.container input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+.container input:focus{
+    outline: 1px solid #212121;
+}
+.container button{
+    width: 100px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #212121;
+    background-color:white ;
+    transition: all 0.3s;
+}
+.submit-area{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+.container button:hover{
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: white;
+    background-color: #212121;
+
+}
+.modal-opacity{
+    visibility: hidden;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    opacity: 0.2;
+    z-index: 1;
+}
+.modal-message{
+    top: -180px;
+    visibility: hidden;
+    position: absolute;
+    height: 180px;
+    width: 600px;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    z-index: 2;
+    padding: 25px 35px;
+    -webkit-box-shadow:4px 7px 44px -3px rgba(0,0,0,0.42);
+    box-shadow: 4px 7px 44px -3px rgba(0,0,0,0.42);
+    transition: all 1s;
+}
+.close{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    font-size: 23px;
+    cursor: pointer;
+}
+.title{
+    margin-top: 10px;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+.subtitle{
+    font-weight: 400;
+}
