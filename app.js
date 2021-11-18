@@ -5,12 +5,30 @@ const modalMessage = document.querySelector('.modal-message');
 const closeButton = document.querySelector('.close');
 const title = document.querySelector('.title');
 const subtitle = document.querySelector('.subtitle');
+const input = document.getElementsByTagName('input');
 
 
 const handlePrediction = () => {
     const limitNumber = randomInput.value;
     var randomNumber = Math.ceil(Math.random() * limitNumber);
     var predictedNumber = predictedInput.value;
+    if (limitNumber<0) {
+        if (parseInt(predictedNumber) < parseInt(limitNumber)) {
+            message(
+                'HATA!!!!!!!',
+                'Lütfen 0 ile belirlenen limit arasında bir sayı giriniz'
+            );
+            return;
+        }
+        else{
+            message(
+                'Maalesef',
+                'Yanlış tahmin aranılan sayı ' + randomNumber 
+            );
+            return;
+        }
+
+    }
     if (!randomInput.value) {
         message(
             'Bu alan zorunludur',
@@ -34,7 +52,7 @@ const handlePrediction = () => {
     }
     randomNumber == predictedNumber
         ? message('Tebrikler', 'Doğru tahmin ettiniz')
-        : message('Maalesef' , 'Yanlış tahmin aranılan sayı ' + randomNumber );
+        : message('Maalesef', 'Yanlış tahmin aranılan sayı ' + randomNumber);
 
 };
 closeButton.addEventListener('click', () => {
@@ -49,15 +67,15 @@ const message = (titleMessage, subtitleMessage) => {
     modalMessage.style.top = '10px';
     modalOpacity.style.visibility = 'visible';
 }
+console.log(input);
+console.log(predictedInput);
+for(let i =0; i<input.length; i++){
+    input[i].addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            handlePrediction();
+        }
+    });
+}
 
-randomInput.addEventListener("keyup" , function(event){
-    if(event.keyCode===13){
-        document.getElementById('btn').click();
-    }
-});
-predictedInput.addEventListener("keyup" , function(event){
-    if(event.keyCode===13){
-        document.getElementById('btn').click();
-    }
-});
+
 
